@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\UploadController;
 use App\Models\Product;
 
 ///Route::middleware(['auth'])->group(function () {
@@ -21,6 +22,9 @@ use App\Models\Product;
             Route::get('add', [ProductController::class, 'create']);
             Route::post('add', [ProductController::class, 'store']);
         });
+
+        #Upload
+        Route::post('upload/services', [UploadController::class, 'store']);
     });
 ///});
 

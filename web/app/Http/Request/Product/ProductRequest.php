@@ -25,9 +25,9 @@ class ProductRequest extends FormRequest
     {
         return [
             'name' => 'required',
-            'thumb' => 'required',
+            'thumbnail' => 'required',
             'price' => 'required|numeric|gt:0',
-            'stock' => 'required|integer|gt:0',
+            'stock' => 'required|integer|gt:0',  
         ];
     }
 
@@ -35,8 +35,8 @@ class ProductRequest extends FormRequest
     {
         return [
             'name.required' => 'Tên sản phẩm không được để trống.',
-            'thumb.required' => 'Ảnh sản phẩm không được để trống.',
-            'thumb.image' => 'Ảnh sản phẩm phải là một file hình ảnh hợp lệ.',
+            'thumbnail.required' => 'Ảnh sản phẩm không được để trống.',
+            'thumbnail.image' => 'Ảnh sản phẩm phải là một file hình ảnh hợp lệ.',
             'price.required' => 'Giá sản phẩm không được để trống.',
             'price.numeric' => 'Giá sản phẩm phải là một số.',
             'price.gt' => 'Giá sản phẩm phải lớn hơn 0.',

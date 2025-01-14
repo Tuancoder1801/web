@@ -38,7 +38,7 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="menu">Giá Giảm</label>
-                        <input type="number" name="price_sale" value="{{ old('price_sale') }}"  class="form-control" >
+                        <input type="number" name="discount" value="{{ old('discount') }}"  class="form-control" >
                     </div>
                 </div>
             </div>
@@ -55,11 +55,11 @@
 
             <div class="form-group">
                 <label for="menu">Ảnh Sản Phẩm</label>
-                <input type="file"  class="form-control" id="upload">
+                <input type="file"  class="form-control" id="upload" name="thumbnail">
                 <div id="image_show">
 
                 </div>
-                <input type="hidden" name="thumb" id="thumb">
+                <input type="hidden" name="thumbnail" id="thumbnail">
             </div>
             
             <div class="row">
@@ -89,7 +89,7 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="menu">Hỗ Trợ</label>
-                        <input type="text" name="connectivity" value="{{ old('connectivity') }}"  class="form-control" >
+                        <input type="text" name="compatibility" value="{{ old('compatibility') }}"  class="form-control" >
                     </div>
                 </div>
             </div>
@@ -98,7 +98,7 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="menu">Màu</label>
-                        <input type="text" name="color" value="{{ old('product_color') }}"  class="form-control" >
+                        <input type="text" name="product_color" value="{{ old('product_color') }}"  class="form-control" >
                     </div>
                 </div>
                 
@@ -114,7 +114,7 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="menu">Kích Thước</label>
-                        <input type="text" name="dimentions" value="{{ old('dimentions') }}"  class="form-control" >
+                        <input type="text" name="dimensions" value="{{ old('dimensions') }}"  class="form-control" >
                     </div>
                 </div>
                 
@@ -164,6 +164,6 @@
 
 @section('footer')
     <script>
-        CKEDITOR.replace('content');
+        //CKEDITOR.replace('content');
     </script>
 @endsection

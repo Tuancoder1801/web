@@ -13,12 +13,13 @@ class ProductAdminService
 {
     public function getCategory()
     {
-        return Category::where('id', 0)->get();
+        return Category::select('id', 'name')->get();
     }
 
     protected function isValidPrice($request)
     {
-        if ($request->input('price') != 0 && $request->input('discount') != 0
+        if (
+            $request->input('price') != 0 && $request->input('discount') != 0
             && $request->input('discount') >= $request->input('price')
         ) {
             Session::flash('error', 'Giá giảm phải nhỏ hơn giá gốc');
@@ -39,8 +40,27 @@ class ProductAdminService
         if ($isValidPrice === false) return false;
 
         try {
-            $request->except('_token');
-            Product::create($request->all());
+            $data = [
+                'category_id' => $request->input('category_id'),
+                'name' => $request->input('name'),
+                'description' => $request->input('description'),
+                'price' => $request->input('price'),
+                'discount' => $request->input('discount'),
+                'thumbnail' => $request->input('thumbnail'),
+                'stock' => $request->input('stock'),
+                'brand' => $request->input('brand'),
+                'connectivity' => $request->input('connectivity'),
+                'compatibility' => $request->input('compatibility'),
+                'product_color' => $request->input('product_color'),
+                'weight' => $request->input('weight'),
+                'dimensions' => $request->input('dimensions'),
+                'battery_life' => $request->input('battery_life'),
+                'warranty' => $request->input('warranty'),
+                'release_date' => $request->input('release_date'),
+                'features' => $request->input('features'),
+            ];
+
+            Product::create($data);
 
             Session::flash('success', 'Thêm Sản phẩm thành công');
         } catch (\Exception $err) {
@@ -54,7 +74,7 @@ class ProductAdminService
 
     public function get()
     {
-        return Product::with('category')
+        return Product::with('category_id')
             ->orderByDesc('id')->paginate(15);
     }
 

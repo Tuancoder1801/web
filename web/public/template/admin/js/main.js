@@ -42,10 +42,12 @@ $('#upload').change(function () {
         url: '/admin/upload/services',
         success: function (results) {
             if (results.error === false) {
+                // Hiển thị ảnh đã upload lên
                 $('#image_show').html('<a href="' + results.url + '" target="_blank">' +
                     '<img src="' + results.url + '" width="100px"></a>');
 
-                $('#thumb').val(results.url);
+                // Lưu URL vào hidden input để gửi cho form
+                $('#thumbnail').val(results.url);
             } else {
                 alert('Upload File Lỗi');
             }
