@@ -29,7 +29,7 @@ class Product extends Model
         'features',
     ];
 
-    public function Category()
+    public function category()
     {
         return $this->hasOne(Category::class, 'id', 'category_id')
             ->withDefault(['name' => '']);

@@ -74,7 +74,7 @@ class ProductAdminService
 
     public function get()
     {
-        return Product::with('category_id')
+        return Product::with('category')
             ->orderByDesc('id')->paginate(15);
     }
 

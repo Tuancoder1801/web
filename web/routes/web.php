@@ -21,6 +21,9 @@ use App\Models\Product;
         Route::prefix('products')->group(function () {
             Route::get('add', [ProductController::class, 'create']);
             Route::post('add', [ProductController::class, 'store']);
+            Route::get('list', [ProductController::class, 'index']);
+            Route::get('edit/{product}', [ProductController::class, 'show']);
+            Route::post('edit/{product}', [ProductController::class, 'update']);
         });
 
         #Upload

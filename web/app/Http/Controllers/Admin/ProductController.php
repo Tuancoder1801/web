@@ -17,6 +17,14 @@ class ProductController extends Controller
         $this->productService = $productService;
     }
 
+    public function index()
+    {
+        return view('admin.product.list', [
+            'title' => 'Danh Sách Sản Phẩm',
+            'products' => $this->productService->get(),
+        ]);
+    }
+
     public function create()
     {
         return view('admin.product.add', [
@@ -30,5 +38,14 @@ class ProductController extends Controller
         $this->productService->insert($request);
 
         return redirect()->back();
+    }
+
+    public function show(Product $product)
+    {
+        return view('admin.product.edit', [
+            'title' => 'Chỉnh Sửa Sản Phẩm',
+            'product' => $product,
+            'categories' => $this->productService->getCategory()
+        ]);
     }
 }
