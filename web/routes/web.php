@@ -24,6 +24,7 @@ use App\Models\Product;
             Route::get('list', [ProductController::class, 'index']);
             Route::get('edit/{product}', [ProductController::class, 'show']);
             Route::post('edit/{product}', [ProductController::class, 'update']);
+            Route::DELETE('destroy', [ProductController::class, 'destroy']);
         });
 
         #Upload

@@ -13,7 +13,7 @@
                 <th>Ảnh Sản Phẩm</th>
                 <th>Số Lượng</th>
                 <th>Thương Hiệu</th>
-                <th>Chế Độ Kết Nối</th>
+                {{-- <th>Chế Độ Kết Nối</th>
                 <th>Hỗ Trợ</th>
                 <th>Màu</th>
                 <th>Trọng Lượng</th>
@@ -21,7 +21,9 @@
                 <th>Pin</th>
                 <th>Bảo Hành</th>
                 <th>Ngày Phát Hành</th>
-                <th>Tính Năng</th>
+                <th>Tính Năng</th> --}}
+                <th>Ngày Tạo</th>
+                <th>Ngày Cập Nhật</th>
                 <th style="width: 50px">&nbsp;</th>
             </tr>
         </thead>
@@ -37,15 +39,17 @@
                 <td>{{$product->thumbnail}}</td>
                 <td>{{$product->stock}}</td>
                 <td>{{$product->brand}}</td>
-                <td>{{$product->connectivity}}</td>
-                <td>{{$product->compatibility}}</td>
-                <td>{{$product->product_color}}</td>
-                <td>{{$product->weight}}</td>
-                <td>{{$product->dimensions}}</td>
-                <td>{{$product->battery_life}}</td>
-                <td>{{$product->warranty}}</td>
-                <td>{{$product->release_date}}</td>
-                <td>{{$product->features}}</td>
+                {{-- <td>{{$product->connectivity}}</td> --}}
+                {{-- <td>{{$product->compatibility}}</td> --}}
+                {{-- <td>{{$product->product_color}}</td> --}}
+                {{-- <td>{{$product->weight}}</td>
+                <td>{{$product->dimensions}}</td> --}}
+                {{-- <td>{{$product->battery_life}}</td> --}}
+                {{-- <td>{{$product->warranty}}</td> --}}
+                {{-- <td>{{$product->release_date}}</td> --}}
+                {{-- <td>{{$product->features}}</td> --}}
+                <td>{{$product->created_at}}</td>
+                <td>{{$product->updated_at}}</td>
                 <td>
                     <a class="btn btn-primary btn-sm" href="/admin/products/edit/{{$product->id}}" >
                         <i class="fa-solid fa-pen-to-square"></i>

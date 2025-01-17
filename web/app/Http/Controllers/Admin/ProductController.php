@@ -48,4 +48,27 @@ class ProductController extends Controller
             'categories' => $this->productService->getCategory()
         ]);
     }
+
+    public function update(Request $request, Product $product)
+    {
+        $result = $this->productService->update($request, $product);
+        if ($result) {
+            return redirect('/admin/products/list');
+        }
+
+        return redirect()->back();
+    }
+
+    public function destroy(Request $request)
+    {
+        $result = $this->productService->delete($request);
+        if ($result) {
+            return response()->json([
+                'error' => false,
+                'message' => 'Xóa thành công sản phẩm'
+            ]);
+        }
+
+        return response()->json([ 'error' => true ]);
+    }
 }
