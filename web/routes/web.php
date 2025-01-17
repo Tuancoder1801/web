@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\UploadController;
+use App\Models\Category;
 use App\Models\Product;
 
 ///Route::middleware(['auth'])->group(function () {
@@ -16,6 +17,10 @@ use App\Models\Product;
         Route::prefix('categories')->group(function () {
             Route::get('add', [CategoryController::class, 'create']);
             Route::post('add', [CategoryController::class, 'store']);
+            Route::get('list', [CategoryController::class, 'index']);
+            Route::get('edit/{category}', [CategoryController::class, 'show']);
+            Route::post('edit/{category}', [CategoryController::class, 'update']);
+            Route::DELETE('destroy', [CategoryController::class, 'destroy']);
         });
 
         Route::prefix('products')->group(function () {
