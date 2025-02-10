@@ -13,7 +13,8 @@ class UploadService
 
                 // Lưu file vào thư mục 'public/uploads/...'
                 $path = $request->file('file')->storeAs(
-                    'uploads/' . date("Y/m/d"), $name
+                    'uploads/' . date("Y/m/d"),
+                    $name
                 );
 
                 // Trả về đường dẫn có thể truy cập từ web

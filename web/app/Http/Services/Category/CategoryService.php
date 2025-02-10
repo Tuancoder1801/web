@@ -13,6 +13,13 @@ class CategoryService
         return Category::where('id', 0)->get();
     }
 
+    public function show()
+    {
+        return Category::select('name', 'id')
+            ->orderbyDesc('id')
+            ->get();
+    }
+
     public function getAll()
     {
         return Category::OrderByDesc('id')->paginate(20);

@@ -2,6 +2,8 @@
 
 namespace App\Helpers;
 
+use Illuminate\Support\Str;
+
 class Helper
 {
     public static function menu($menus, $parent_id = 0, $char = '')
@@ -36,9 +38,34 @@ class Helper
         return $html;
     }
 
-    public static function active($active = 0) : string
+    public static function active($active = 0): string
     {
         return $active == 0 ? '<span class="btn btn-danger btn-xs">NO</span>'
-        : '<span class="btn btn-success btn-xs">YES</span>';
+            : '<span class="btn btn-success btn-xs">YES</span>';
+    }
+
+    public static function categories($categories)
+    {
+        $html = '';
+
+        foreach ($categories as $key => $category) {
+            $html .= '
+                <li>
+                    <a  href="/danh-muc/' . $category->id . '-' . Str::slug($category->name, '-') . '.html">
+                        ' . $category->name . '
+                    </a>';
+
+            unset($categories[$key]);
+            $html .= '</li>';
+        }
+
+        return $html;
+    }
+
+    public static function price($price = 0, $priceSale = 0)
+    {
+        if ($priceSale != 0) return number_format($priceSale);
+        if ($price != 0)  return number_format($price);
+        return '<a href="/lien-he.html">Liên Hệ</a>';
     }
 }
